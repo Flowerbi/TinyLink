@@ -23,7 +23,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'url' => ['required', 'string', 'min:7', 'max:200']
+            'url' => ['required', 'url', 'min:7', 'max:200']
         ];
     }
 }
