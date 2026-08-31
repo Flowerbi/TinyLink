@@ -15,5 +15,10 @@
     },
     "optionalDependencies": {
         "@laravel/multiplex": "^0.4.1"
+    },
+    "dependencies": {
+        "@vitejs/plugin-vue": "^6.0.8",
+        "vue": "^3.5.42",
+        "vue-router": "^5.3.0"
     }
 }
