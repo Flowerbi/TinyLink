@@ -2084,6 +2084,6 @@
     @endif
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app" class="bg-gray-800 h-screen text-white"></div>
 </body>
 </html>
