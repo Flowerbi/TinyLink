@@ -6,4 +6,4 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::post('/url', [\App\Http\Controllers\Url\UrlController::class, 'store'])->name('url.store');
+//Route::get('/tl/{hashLink}', [\App\Http\Controllers\Url\UrlController::class, 'redirect']);
