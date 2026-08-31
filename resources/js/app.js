@@ -1,6 +1,6 @@
 import {createApp} from "vue";
 import App from "@/App.vue";
-import {routerKey} from "vue-router";
+import axios from "axios";
 
 const app = createApp(App);
 
