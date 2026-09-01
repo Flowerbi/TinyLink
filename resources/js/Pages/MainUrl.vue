@@ -25,7 +25,7 @@
             <div class="quantity-follow text-gray-400">Количество переходов: {{ Url.quantity_follow }}</div>
             <div class="quantity-follow text-gray-400">Дата создания: {{ Url.created_at }} UTC</div>
             <div class="urls__bottom pt-3 flex gap-5">
-                <a href="#" class="hover:text-sky-300 transition-all inline-block text-sky-500">Статистика</a>
+                <router-link class="hover:text-sky-300 transition-all inline-block text-sky-500" :to="{name: 'current-url.page', params: { url: Url.id }}">Статистика</router-link>
                 <a @click.prevent="deleteUrl(Url.id)" href="#"
                    class="hover:text-red-300 transition-all inline-block text-red-500">Удалить</a>
             </div>
