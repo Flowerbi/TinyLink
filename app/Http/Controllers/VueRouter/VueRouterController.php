@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\MainPage;
+namespace App\Http\Controllers\VueRouter;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Ip;
 
-class MainPageController extends Controller
+class VueRouterController extends Controller
 {
     public function index()
     {
