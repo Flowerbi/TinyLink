@@ -37,7 +37,16 @@ class UrlController extends Controller
             'link_shorted' => $linkShorted
         ]);
 
-        return redirect()->back();
+        return response()->json([
+            'message' => 'url success create'
+        ], 201);
+    }
+
+    public function destroy(Url $url)
+    {
+        $url->delete();
+
+        return response()->json([], 204);
     }
 
     public function redirect($hashLink)
