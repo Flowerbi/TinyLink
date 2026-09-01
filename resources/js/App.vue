@@ -37,7 +37,7 @@ export default {
     },
 
     methods: {
-        getUrl() {
+        getUrls() {
             axios.get('/api/urls')
                 .then(res => {
                     this.Urls = res.data
@@ -46,13 +46,14 @@ export default {
         submitUrl() {
             axios.post('/api/urls', {url: this.urlInput})
                 .then(res => {
-                    this.getUrl()
+                    this.urlInput = ''
+                    this.getUrls()
                 })
         },
     },
 
     mounted() {
-        this.getUrl();
+        this.getUrls();
     },
 
     components: {
