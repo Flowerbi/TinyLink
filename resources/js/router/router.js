@@ -8,7 +8,7 @@ const routes = [
         name: 'main-url.page'
     },
     {
-        path: '/url',
+        path: '/url/:url',
         component: CurrentUrl,
         name: 'current-url.page'
     }
