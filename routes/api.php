@@ -7,3 +7,5 @@ Route::get('/urls', [\App\Http\Controllers\Url\UrlController::class, 'index'])->
 Route::get('/urls/{url}', [\App\Http\Controllers\Url\UrlController::class, 'show'])->name('urls.show');
 Route::post('/urls', [\App\Http\Controllers\Url\UrlController::class, 'store'])->name('urls.store');
 Route::delete('/urls/{url}', [\App\Http\Controllers\Url\UrlController::class, 'destroy'])->name('urls.destroy');
+
+Route::get('/urls/{url}/ips', [\App\Http\Controllers\Ip\IpController::class, 'index'])->name('ips.index');
