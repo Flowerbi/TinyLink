@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('link_source');
             $table->string('link_shorted')->unique();
-            $table->integer('quantity_follow')->default(0);
             $table->timestamps();
         });
     }
