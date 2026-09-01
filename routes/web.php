@@ -6,4 +6,5 @@ Route::get('/', function () {
     return view('main');
 });
 
-//Route::get('/tl/{hashLink}', [\App\Http\Controllers\Url\UrlController::class, 'redirect']);
+Route::get('/tl/{hashLink}', [\App\Http\Controllers\Url\UrlController::class, 'redirect'])
+->where('hashLink', '[A-Za-z0-9]+');
