@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('link_source');
             $table->string('link_shorted')->unique();
             $table->integer('quantity_follow')->default(0);
-            $table->string('ip_follow')->nullable();
-            $table->timestamp('time_follow')->nullable();
             $table->timestamps();
         });
     }
