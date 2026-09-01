@@ -9,6 +9,7 @@ class Ip extends Model
     protected $fillable = [
         'ip_follow',
         'time_follow',
+        'url_id'
     ];
 
     protected $table = 'ips';
