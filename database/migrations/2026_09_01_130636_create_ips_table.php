@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('ip_follow')->nullable();
             $table->timestamp('time_follow')->nullable();
-            $table->foreignId('url_id')->constrained('urls');
+            $table->foreignId('url_id')->constrained('urls')->cascadeOnDelete();
             $table->timestamps();
         });
     }
