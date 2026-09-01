@@ -8,15 +8,22 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\Url\StoreRequest;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 use App\Models\Url;
+use App\Models\Ip;
 
 class UrlController extends Controller
 {
     public function index()
     {
-        return Url::all();
+        $urlsJoinIps = DB::table('urls as u')
+            ->select('u.*', DB::raw('COUNT(i.url_id) as quantity_follow'))
+            ->join('ips as i', 'i.url_id', 'u.id')
+            ->groupBy('u.id')
+            ->get();
+        return $urlsJoinIps;
     }
 
     public function store(StoreRequest $request)
@@ -35,12 +42,17 @@ class UrlController extends Controller
 
     public function redirect($hashLink)
     {
-        $link_shorted = request()->url();
-        $infoUrl = Url::where('link_shorted', $link_shorted)->first();
-        $infoUrl->update([
-            'quantity_follow' => ++$infoUrl->quantity_follow,
-            'ip_follow' => request()->ip(),
+        $linkShorted = request()->url();
+        $infoUrl = Url::where('link_shorted', $linkShorted)->first();
+        $ipFollow = request()->ip();
+        $dateTimeFollow = Carbon::now()->toDateTimeString();
+
+        Ip::create([
+            'ip_follow' => $ipFollow,
+            'time_follow' => $dateTimeFollow,
+            'url_id' => $infoUrl->id
         ]);
+
         return redirect($infoUrl->link_source);
     }
 }
