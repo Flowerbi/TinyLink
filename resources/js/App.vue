@@ -13,7 +13,9 @@
         <div class="urls flex flex-col gap-5 pb-15" v-if="Urls">
             <div class="url border border-gray-300 p-3 rounded-sm" v-for="Url in Urls">
                 <div class="source-link text-2xl font-bold">URL - <a class="underline" target="_blank"
-                                                                     :href="Url.link_source">{{ Url.link_source }}</a>
+                                                                     :href="Url.link_source">{{
+                        Url.link_source.length > 70 ? Url.link_source.slice(0, 70) + '...' : Url.link_source
+                    }}</a>
                 </div>
                 <div class="shorted-link text-2xl font-bold">Новый URL - <a @click="getUrls()" class="underline"
                                                                             target="_blank" :href="Url.link_shorted">{{
