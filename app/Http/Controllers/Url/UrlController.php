@@ -27,6 +27,12 @@ class UrlController extends Controller
         return $urlsJoinIps;
     }
 
+    public function show($url)
+    {
+        $url = Url::find((int) $url);
+        return $url;
+    }
+
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
