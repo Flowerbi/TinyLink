@@ -20,7 +20,7 @@ class UrlController extends Controller
     {
         $urlsJoinIps = DB::table('urls as u')
             ->select('u.*', DB::raw('COUNT(i.url_id) as quantity_follow'))
-            ->join('ips as i', 'i.url_id', 'u.id')
+            ->leftJoin('ips as i', 'i.url_id', 'u.id')
             ->groupBy('u.id')
             ->get();
         return $urlsJoinIps;
