@@ -1,58 +1,59 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# :link::straight_ruler: TinyLink
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**TinyLink** — это веб приложение на Laravel + Vue, созданное для сокращения ссылки. Проект включает возможность сокращать ссылки, сохраняет сокращённые ссылки, остлеживания количество переходов по ссылке, отслеживания ip адреса клиента переходящего по сокращённой ссылке и время перехода.
 
-## About Laravel
+#### Возможности
+- Создавать и отслеживать сокращённые ссылки.
+- Просматривать количество переходов по сокращённой ссылки.
+- Отслеживать ip адреса клиента, время перехода по сокращённой ссылки.
+- Удалять сокращённые ссылки.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+#### О проекте
+Этот проект был разработан как учебное приложение (пет проект) для практики Laravel + Vue, работы с маршрутами, контроллерами, моделями.
+Проект был сделан с использованием Tailwind CSS библиотеки.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Версии технологий:
+- Laravel 13
+- PHP 8.3
+- Vue 3
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### :green_circle: Запуск проекта
 
-## Learning Laravel
+После скачивания проекта, установите composer в проект, для создания папки vendor
+> composer install
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Затем установите npm, для создания папки node_modules
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> npm install
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+Далее создайте файл .env из .env.example и в нём настройте подключение к Базе данных
 
-## Agentic Development
+Для корректной работы с изображениями и файлами приложения, поменяйте флаг в файле .env
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+с
 
-```bash
-composer require laravel/boost --dev
+> FILESYSTEM_DISK=local
 
-php artisan boost:install
-```
+на
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+> FILESYSTEM_DISK=public
 
-## Contributing
+И создайте ссылку на storage
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+> php artisan storage:link
 
-## Code of Conduct
+Затем добавьте ключ шифрования
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+>php artisan key:generate
 
-## Security Vulnerabilities
+Запускаем миграции в Базу данных
+> php artisan migrate
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Далее запускаем сид, для заполнения тестовыми данными таблиц в Базе данных
+> php artisan db:seed
 
-## License
+Запускаем сервер
+> php artisan serve
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Запускаем фронтенд
+> npm run dev
