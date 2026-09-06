@@ -29,8 +29,14 @@ class UrlController extends Controller
 
     public function show($url)
     {
-        $url = Url::find((int) $url);
-        return $url;
+        $urlJoinIps = DB::table('urls as u')
+            ->select('u.*', DB::raw('COUNT(i.url_id) as quantity_follow'))
+            ->leftJoin('ips as i', 'i.url_id', 'u.id')
+            ->where('u.id', (int)$url)
+            ->groupBy('u.id')
+            ->orderBy('id', 'DESC')
+            ->first();
+        return $urlJoinIps;
     }
 
     public function store(StoreRequest $request)
