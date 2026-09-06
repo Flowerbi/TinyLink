@@ -21,7 +21,7 @@
     <div class="ips flex flex-col gap-4 pb-15" v-if="Ips">
         <div class="ip bg-sky-700 py-3 px-5" v-for="Ip in Ips">
             <div class="ip__follow text-xl">IP - {{ Ip.ip_follow }}</div>
-            <div class="time__follow text-lg text-gray-300">Date Open - {{ Ip.time_follow }} UTC</div>
+            <div class="time__follow text-lg text-gray-300">URL Open - {{ Ip.time_follow }} UTC</div>
         </div>
     </div>
 </template>
