@@ -29,29 +29,12 @@
 
 Далее создайте файл .env из .env.example и в нём настройте подключение к Базе данных
 
-Для корректной работы с изображениями и файлами приложения, поменяйте флаг в файле .env
-
-с
-
-> FILESYSTEM_DISK=local
-
-на
-
-> FILESYSTEM_DISK=public
-
-И создайте ссылку на storage
-
-> php artisan storage:link
-
 Затем добавьте ключ шифрования
 
 >php artisan key:generate
 
 Запускаем миграции в Базу данных
 > php artisan migrate
-
-Далее запускаем сид, для заполнения тестовыми данными таблиц в Базе данных
-> php artisan db:seed
 
 Запускаем сервер
 > php artisan serve
