@@ -10,7 +10,7 @@
             </a>
         </div>
         <div class="shorted-link text-2xl font-bold">Новый URL -
-            <a @click="getUrls()" class="underline"
+            <a @click="getUrl()" class="underline"
                target="_blank" :href="Url.link_shorted">
                 {{
                     Url.link_shorted
